@@ -8,6 +8,9 @@ const headers = {
 const sara = "60d0fe4f5311236168a109ca"
 
 const makeCard = user => {
+    let col = document.createElement('div');
+    col.classList.add('col-lg-4', 'col-md-2', 'col-sm-12');
+
     let card = document.createElement('div');
     card.classList.add('card', 'mb-4');
 
@@ -26,7 +29,7 @@ const makeCard = user => {
     email.innerText = `Email: ${user.email}`;
 
     let picture = document.createElement('img');
-    picture.classList.add('image-fluid', 'image-thumbnail', 'rounded');
+    picture.classList.add('img-fluid', 'img-thumbnail', 'rounded');
     picture.src = user.picture;
     picture.alt = `${user.firstName} ${user.lastName}`;
 
@@ -36,8 +39,9 @@ const makeCard = user => {
     body.appendChild(picture);
     body.appendChild(email);
     card.appendChild(body);
+    col.appendChild(card);
 
-    document.getElementById('results').appendChild(card);
+    document.getElementById('results').appendChild(col);
 };
 
 const getUsers = () => {
